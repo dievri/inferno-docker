@@ -10,11 +10,8 @@ jobs:
       - name: build image
         run: docker build -t dievri/inferno-os:latest .
 
-        env:
-          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-      - name: login to dockerhub
-        run: echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USERNAME" --password-stdin
+      - name: login to hub.docker.com
+        run: docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
       
       - name: push image to registry
         run: docker image push dievri/inferno-os:latest

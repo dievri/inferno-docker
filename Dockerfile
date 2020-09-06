@@ -22,7 +22,7 @@ RUN git reset --hard ${INFERNO_COMMIT}
 WORKDIR /usr/inferno-os/utils/http
 RUN git clone --depth 1 -b master https://github.com/mjl-/http
 WORKDIR /usr/inferno-os
-RUN patch -p1 < /tmp/mk_http.patch
+#RUN patch -p1 < /tmp/mk_http.patch
 
 
 #ENV PATH=$PATH:/usr/inferno-os/Linux/386/bin

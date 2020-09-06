@@ -1,0 +1,20 @@
+name: Inferno Container
+on:
+  push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: build image
+        run: docker build -t dievri/inferno-os:latest .
+
+        env:
+          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: login to dockerhub
+        run: echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USERNAME" --password-stdin
+      
+      - name: push image to registry
+        run: docker image push dievri/inferno-os:latest

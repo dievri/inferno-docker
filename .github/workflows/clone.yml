@@ -16,6 +16,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: clone repository
       - uses: actions/checkout@v2
-          run: ls
+      
+      - name: clone repository
+        run: ls

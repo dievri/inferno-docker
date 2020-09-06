@@ -8,10 +8,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build image
-        run: docker build -t dievri/inferno-os:latest .
+        run: docker build -t ${{ secrets.REGISTRY_USERNAME }}/inferno-os:latest .
 
       - name: login to hub.docker.com
         run: docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
       
       - name: push image to registry
-        run: docker image push dievri/inferno-os:latest
+        run: docker image push ${{ secrets.REGISTRY_USERNAME }}/inferno-os:latest

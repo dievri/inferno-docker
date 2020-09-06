@@ -1,6 +1,5 @@
 FROM i386/ubuntu:bionic AS builder
 
-
 WORKDIR /usr
 
 #RUN apk add --update gcc libc6-compat

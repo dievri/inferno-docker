@@ -11,7 +11,7 @@ jobs:
       - name: Invoke workflow in another repo with inputs
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: Some Workflow
+          workflow: LinuxMacOS
           repo: dievri/digibits
           ref: staging
           token: ${{ secrets.PERSONAL_TOKEN }}

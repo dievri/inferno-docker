@@ -2,8 +2,6 @@ name: Inferno Container
 on:
   push:
   repository_dispatch:
-    types: [changed]
-    branch: [master]
 jobs:
   build:
     runs-on: ubuntu-latest

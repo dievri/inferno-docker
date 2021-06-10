@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Invoke workflow in another repo with inputs
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Some Workflow
+          repo: dievri/digibits
+          ref: staging
+          token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: build image
         run: docker build -t ${{ secrets.REGISTRY_USERNAME }}/inferno-os:latest .
